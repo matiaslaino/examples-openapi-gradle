@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Sample API
+  description: A sample API to illustrate OpenAPI concepts
+paths:
+  /books:
+    get:
+      description: Returns a list of stuff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        author:
+          type: string
+        title:
+          type: string
+      required:
+        - author
+        - title
